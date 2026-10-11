@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "math-llm-rlvr-lab"
+version = "0.1.0"
+description = "Reproducible MATH-500 pass@k evaluation and VERL GRPO smoke training"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = [
+  "datasets>=3.0",
+  "matplotlib>=3.8",
+  "math-verify>=0.5.2",
+  "numpy>=1.26",
+  "transformers>=4.51",
+]
+
+[project.optional-dependencies]
+inference = ["vllm==0.8.3"]
+dev = ["pytest>=8", "ruff>=0.9"]
+
+[project.scripts]
+ttc-eval = "ttc_rlvr.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+

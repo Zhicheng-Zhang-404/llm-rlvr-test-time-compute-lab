@@ -1,0 +1,23 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.env
+build/
+dist/
+*.egg-info/
+.DS_Store
+
+# Large/generated experiment artifacts
+artifacts/
+checkpoints/
+wandb/
+ray_results/
+*.parquet
+*.jsonl
+*.png
+*.pdf
+
+!.github/
+!tests/fixtures/*.jsonl
+
